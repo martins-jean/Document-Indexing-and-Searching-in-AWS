@@ -96,5 +96,6 @@ Deployed an OpenSearch domain to index bank transactions and created a Glue job 
   8. Click "Interact with the Elasticsearch API" <br>
   9. Review the provided query example and click play, this query searches all indexes in your cluster <br>
   10. After GET type: /main-index/_search <br>
-  11. Test the query written in the file "test-query" listed on this repository <br>
+  11. Test the query written in the file "test-query.rtf" listed on this repository <br>
+  12. Change the query with new keywords related to bank transactions in order to see new results <br>
 </details>
