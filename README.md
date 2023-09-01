@@ -24,6 +24,7 @@ Deployed an OpenSearch domain to index bank transactions and created a Glue job 
   1. Download the "glue_to_opensearch_job.py" file locally. <br>
   2. Create an ingestion bucket in S3, make sure it contains the "elasticsearch-hadoop-7.8.0.jar" file. <br>
   3. In the S3 bucket, create an "input/" folder and make sure it contains the "transactions.csv.gz" file. <br>
+  4. Create an IAM role for AWS Glue named "NewGlueServiceRole" with permissions to access S3 for any sources, targets, scripts and temporary directories. <br>
 </details>
 
 <details>
@@ -53,6 +54,28 @@ Deployed an OpenSearch domain to index bank transactions and created a Glue job 
   - Create job: Spark script editor <br>
   - Options: upload and edit an existing script <br>
   - File upload: click and upload the .py file in this repository <br>
+  - Click create and name the script "bank-transactions-ingestion-job" <br>
+  4. Switch to the "Job Details" tab and select the following: <br>
+  - IAM role: NewGlueServiceRole <br>
+  - Glue version: 2.0 <br>
+  - Job bookmark: disable <br>
+  - Number of retries: 0 <br>
+  - Under Advanced Properties, libraries / dependent JARs path paste the first S3 URI you copied and click save <br>
+  5. Navigate to the OpenSearch Service to verify the domain is now available <br>
+  6. Click on the domain, copy and paste the domain endpoint locally <br>
+  7. Go back to your Glue job, under Job Details / Job Parameters click add new parameter: <br>
+  - Key: --es_endpoint <br>
+  - Value: URL of the endpoint you copied <br>
+  8. Add another parameter:
+  - Key: --es_user <br>
+  - Value: project-user <br>
+  9. Add another parameter:
+  - Key: --es_pass <br>
+  - Value: ProjectUserD777! <br>
+  10. Add another parameter: <br>
+  - Key: --input_bucket <br>
+  - Value: the S3 URI yo copied for the ingestion bucket <br>
+  11. Click save and run. <br>
 </details>
 
 <details>
