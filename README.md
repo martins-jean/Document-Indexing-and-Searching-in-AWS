@@ -47,7 +47,12 @@ Deployed an OpenSearch domain to index bank transactions and created a Glue job 
 
 <details>
   <summary>Creating an ETL job using AWS Glue studio</summary>
-  1. Open S3 and 
+  1. Open S3 and click the "elasticsearch-hadoop-7.8.0.jar" checkbox, then click "Copy S3 URI" above it to a local file on your computer. <br>
+  2. Click the "input/" folder and "Copy S3 URI" at the top right of the page. <br>
+  3. Navigate to AWS Glue Studio and create an ETL job with the following configurations: <br>
+  - Create job: Spark script editor <br>
+  - Options: upload and edit an existing script <br>
+  - File upload: click and upload the .py file in this repository <br>
 </details>
 
 <details>
