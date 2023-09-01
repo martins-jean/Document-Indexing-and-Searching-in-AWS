@@ -21,10 +21,11 @@ Deployed an OpenSearch domain to index bank transactions and created a Glue job 
 
 <details>
   <summary>Required setup</summary>
-  1. Download the "glue_to_opensearch_job.py" file locally. <br>
-  2. Create an ingestion bucket in S3, make sure it contains the "elasticsearch-hadoop-7.8.0.jar" file. <br>
-  3. In the S3 bucket, create an "input/" folder and make sure it contains the "transactions.csv.gz" file. <br>
-  4. Create an IAM role for AWS Glue named "NewGlueServiceRole" with permissions to access S3 for any sources, targets, scripts and temporary directories. <br>
+  1. Download the "glue_to_opensearch_job.py" file locally <br>
+  2. Create an ingestion bucket in S3, make sure it contains the "elasticsearch-hadoop-7.8.0.jar" file <br>
+  3. In the S3 bucket, create an "input/" folder and make sure it contains the "transactions.csv.gz" file <br>
+  4. Create an IAM role for AWS Glue named "NewGlueServiceRole" with permissions to access S3 for any sources, targets, scripts and temporary directories <br>
+  5. Make sure you create a t3.micro EC2 instance called "SearchInstance" <br>
 </details>
 
 <details>
@@ -61,27 +62,38 @@ Deployed an OpenSearch domain to index bank transactions and created a Glue job 
   - Job bookmark: disable <br>
   - Number of retries: 0 <br>
   - Under Advanced Properties, libraries / dependent JARs path paste the first S3 URI you copied and click save <br>
-  5. Navigate to the OpenSearch Service to verify the domain is now available <br>
-  6. Click on the domain, copy and paste the domain endpoint locally <br>
-  7. Go back to your Glue job, under Job Details / Job Parameters click add new parameter: <br>
-  - Key: --es_endpoint <br>
-  - Value: URL of the endpoint you copied <br>
-  8. Add another parameter:
-  - Key: --es_user <br>
-  - Value: project-user <br>
-  9. Add another parameter:
-  - Key: --es_pass <br>
-  - Value: ProjectUserD777! <br>
-  10. Add another parameter: <br>
-  - Key: --input_bucket <br>
-  - Value: the S3 URI yo copied for the ingestion bucket <br>
-  11. Click save and run. <br>
 </details>
 
 <details>
   <summary>Configure an ETL script to ingest Amazon S3 data into Amazon OpenSearch</summary>
+  1. Navigate to the OpenSearch Service to verify the domain is now available <br>
+  2. Click on the domain, copy and paste the domain endpoint locally <br>
+  3. Go back to your Glue job, under Job Details / Job Parameters click add new parameter: <br>
+  - Key: --es_endpoint <br>
+  - Value: URL of the endpoint you copied <br>
+  4. Add another parameter:
+  - Key: --es_user <br>
+  - Value: project-user <br>
+  5. Add another parameter:
+  - Key: --es_pass <br>
+  - Value: ProjectUserD777! <br>
+  6. Add another parameter: <br>
+  - Key: --input_bucket <br>
+  - Value: the S3 URI yo copied for the ingestion bucket <br>
+  7. Click save and run. <br>
+  8. Refresh the run details page to check if your run was completed successfully <br>
 </details>
 
 <details>
   <summary>Use the OpenSearch dashboards to call the Search API to query data from the OpenSearch domain</summary>
+  1. Navigate to the EC2 console and click on instances <br>
+  2. Copy the Public IPv4 address of the instance you created earlier and paste it into a new browser tab <br>
+  3. Type the word "credit" for example and click search to see the results <br>
+  4. Navigate to the OpenSearch console and click on the domain you created <br>
+  5. Click on the Kibana URL and enter the credentials you created earlier <br>
+  6. Select "explore on my own" <br>
+  7. Select private tenant and click confirm <br>
+  8. Click "Interact with the Elasticsearch API" <br>
+  9. Review the provided query example and click play, this query searches all indexes in your cluster <br>
+  10. After GET type: /main-index/_search
 </details>
