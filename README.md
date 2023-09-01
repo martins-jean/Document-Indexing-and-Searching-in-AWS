@@ -20,21 +20,17 @@ Deployed an OpenSearch domain to index bank transactions and created a Glue job 
 ## Reproducibility Guidelines
 
 <details>
-  <summary></summary>
+  <summary>Deloy and configure an Amazon OpenSearch domain</summary>
 </details>
 
 <details>
-  <summary></summary>
+  <summary>Creating an ETL job using AWS Glue studio</summary>
 </details>
 
 <details>
-  <summary></summary>
+  <summary>Configure an ETL script to ingest Amazon S3 data into Amazon OpenSearch</summary>
 </details>
 
 <details>
-  <summary></summary>
-</details>
-
-<details>
-  <summary></summary>
+  <summary>Use the OpenSearch dashboards to call the Search API to query data from the OpenSearch domain</summary>
 </details>
