@@ -22,15 +22,32 @@ Deployed an OpenSearch domain to index bank transactions and created a Glue job 
 <details>
   <summary>Required setup</summary>
   1. Download the "glue_to_opensearch_job.py" file locally. <br>
+  2. Create an ingestion bucket in S3, make sure it contains the "elasticsearch-hadoop-7.8.0.jar" file.
+  3. In the S3 bucket, create an "input/" folder and make sure it contains the "transactions.csv.gz" file.
 </details>
 
 <details>
   <summary>Deloy and configure an Amazon OpenSearch domain</summary>
-  1. Navigate to the OpenSearch console and click on "create domain".
+  1. Navigate to the OpenSearch console and click on "create domain", using the following configurations: <br>
+  - Domain name: bank-transactions <br>
+  - Domain creation method: standard create <br>
+  - Templates: dev/test <br>
+  - Deployment options: domain without standby <br>
+  - Availability zones: 1 AZ <br>
+  - Enginer options / version: 7.10 <br>
+  - Data nodes / instance type: m5.large.search <br>
+  - Number of nodes: 1 <br>
+  - Network: public access <br>
+  - Master user: create master user <br>
+  - Master username: project-user <br>
+  - Master password: ProjectUserD777! <br>
+  - Access policy: only use fine-grained access control <br>
+  - Click create at the bottom of the page to finish this step. <br>
 </details>
 
 <details>
   <summary>Creating an ETL job using AWS Glue studio</summary>
+  1. Open S3 and 
 </details>
 
 <details>
