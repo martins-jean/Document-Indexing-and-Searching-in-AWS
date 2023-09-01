@@ -79,7 +79,7 @@ Deployed an OpenSearch domain to index bank transactions and created a Glue job 
   - Value: ProjectUserD777! <br>
   6. Add another parameter: <br>
   - Key: --input_bucket <br>
-  - Value: the S3 URI yo copied for the ingestion bucket <br>
+  - Value: the S3 URI you copied for the ingestion bucket <br>
   7. Click save and run. <br>
   8. Refresh the run details page to check if your run was completed successfully <br>
 </details>
