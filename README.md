@@ -22,8 +22,8 @@ Deployed an OpenSearch domain to index bank transactions and created a Glue job 
 <details>
   <summary>Required setup</summary>
   1. Download the "glue_to_opensearch_job.py" file locally. <br>
-  2. Create an ingestion bucket in S3, make sure it contains the "elasticsearch-hadoop-7.8.0.jar" file.
-  3. In the S3 bucket, create an "input/" folder and make sure it contains the "transactions.csv.gz" file.
+  2. Create an ingestion bucket in S3, make sure it contains the "elasticsearch-hadoop-7.8.0.jar" file. <br>
+  3. In the S3 bucket, create an "input/" folder and make sure it contains the "transactions.csv.gz" file. <br>
 </details>
 
 <details>
