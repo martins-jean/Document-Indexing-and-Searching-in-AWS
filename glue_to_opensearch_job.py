@@ -17,8 +17,6 @@ job.init(args["JOB_NAME"], args)
 
 # This section of the code create a DynamicFrame from 
 # the the CSV files found in the input bucket.
-# For more information on DynamicFrame see:
-# https://docs.aws.amazon.com/glue/latest/dg/glue-etl-scala-apis-glue-dynamicframe-class.html 
 
 TransactionsDF = glueContext.create_dynamic_frame.from_options(
     format_options={
@@ -66,11 +64,6 @@ DataFrame = ApplyMapping.toDF()
 # 
 #  You can specify any name for your index, or create multiple indexex with different 
 #  data. The driver will auto create the index (see line 75). 
-#  The index format is "name/type". For more information about ElasticSearch indexes and type see:
-#  https://www.elastic.co/blog/index-vs-type
-#  For more information on the usage of the elasticsearch-hadoop connector see:
-#  https://www.elastic.co/guide/en/elasticsearch/hadoop/current/configuration.html 
-#  
 
 es_index = "main-index/transactions"
 
